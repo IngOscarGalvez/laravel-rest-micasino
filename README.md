@@ -131,7 +131,7 @@ Este proyecto es una aplicación Laravel para integrar dos sistemas de pago fict
 1. Instala Node.js y las dependencias necesarias:
 
    ```bash
-   npm install express axios
+   npm install
    ```
 
 2. Inicia los servidores simulados:
