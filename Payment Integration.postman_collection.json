@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "2e475b34-5652-41da-8e16-186ff17d1c8d",
+		"name": "Payment Integration",
+		"description": "Collection for testing EasyMoney and SuperWalletz payment APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8259068"
+	},
+	"item": [
+		{
+			"name": "Process EasyMoney Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100,\n  \"currency\": \"USD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/easy-money",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"easy-money"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process SuperWalletz Payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"amount\": 100.50,\n  \"currency\": \"USD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/super-walletz",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"super-walletz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Handle SuperWalletz Webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"transaction_id\": \"trx_12345\",\n  \"status\": \"success\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/webhook/superwalletz",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"webhook",
+						"superwalletz"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
